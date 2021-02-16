@@ -16,12 +16,12 @@ const popup = function (url, likes, description, comments) {
 // Функция закрытия popup по клику мыши
 const closeModalByClick = (modal, bodyNoScroll) => {
   const closePopup = document.querySelector('#picture-cancel');
-    closePopup.addEventListener('click', function(evt) {
-      modal.classList.add('hidden');
-      bodyNoScroll.classList.remove('modal-open');
-      const socialComments = document.querySelectorAll('.social__comments');
-      cleanList(socialComments);
-    });
+  closePopup.addEventListener('click', function() {
+    modal.classList.add('hidden');
+    bodyNoScroll.classList.remove('modal-open');
+    const socialComments = document.querySelectorAll('.social__comments');
+    cleanList(socialComments);
+  });
 };
 
 // Функция закрытия popup при нажатии клавишы Esc

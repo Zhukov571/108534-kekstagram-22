@@ -6,11 +6,11 @@ import {getRandomIntInclusive, makeStr} from './utils.js';
 const getCommentsArray = function (count) {
   const commentsArray = new Array(count).fill(null).map(function (_ , index) {
     return {
-        id: index + 1,
-        avatar: makeStr('img/avatar-', [getRandomIntInclusive(1, 6)], '.svg'),
-        message: message[getRandomIntInclusive('', message.length - 1)],
-        name: authorName[getRandomIntInclusive('', authorName.length - 1)],
-      };
+      id: index + 1,
+      avatar: makeStr('img/avatar-', [getRandomIntInclusive(1, 6)], '.svg'),
+      message: message[getRandomIntInclusive('', message.length - 1)],
+      name: authorName[getRandomIntInclusive('', authorName.length - 1)],
+    };
   });
 
   return commentsArray;
