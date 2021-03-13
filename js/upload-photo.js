@@ -43,10 +43,9 @@ controlSmaller.addEventListener('click', (evt) => {
 controlBigger.addEventListener('click', (evt) => {
   evt.preventDefault();
   let val = controlValue.value;
-    if (val < 100) {
-     controlValue.value = + val + 25;
-     val = controlValue.value / 100;
-     console.log(controlValue.value / 100);
-     imgPreview.querySelector('img').style.transform = 'scale(' + val + ')';
+  if (val < 100) {
+    controlValue.value = + val + 25;
+    val = controlValue.value / 100;
+    imgPreview.querySelector('img').style.transform = 'scale(' + val + ')';
   }
 });

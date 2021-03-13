@@ -1,12 +1,10 @@
-import noUiSlider from '../node_modules/nouislider/distribute/nouislider.js';
-import '../node_modules/nouislider/distribute/nouislider.css';
-
 // Фотоэффекты
 const photoEffect = document.querySelectorAll('.effects__radio');
 const imgPreview = document.querySelector('.img-upload__preview');
 const effectLevel = document.querySelector('.effect-level');
 const effectLevelSlider = document.querySelector('.effect-level__slider');
 const effectInput = document.querySelector('#effect');
+const noUiSlider = window.noUiSlider;
 
 for (let i = 0; i < photoEffect.length; i++) {
   photoEffect[i].addEventListener('change', function (evt) {
@@ -56,27 +54,26 @@ for (let i = 0; i < photoEffect.length; i++) {
   });
 }
 
-
 noUiSlider.create(effectLevelSlider, {
-    range: {
-        min: 0,
-        max: 1,
-    },
-    start: 0,
-    step: 0.1,
-    connect: 'lower',
+  range: {
+    min: 0,
+    max: 1,
+  },
+  start: 0,
+  step: 0.1,
+  connect: 'lower',
 });
 
 
 const sliderEffects = function (minVal, maxVal, stepVal, start, filter, unit) {
   // Cлайдер
   effectLevelSlider.noUiSlider.updateOptions({
-      range: {
-          min: minVal,
-          max: maxVal,
-      },
-      start: start,
-      step: stepVal,
+    range: {
+      min: minVal,
+      max: maxVal,
+    },
+    start: start,
+    step: stepVal,
   });
 
   effectLevelSlider.noUiSlider.set(start);
@@ -86,7 +83,6 @@ const sliderEffects = function (minVal, maxVal, stepVal, start, filter, unit) {
     effectInput.value = values;
   });
 };
-
 
 const removeClassHidden = () => {
   effectLevel.classList.remove('hidden');
