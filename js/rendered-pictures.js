@@ -35,7 +35,7 @@ const renderedPictures = function (arr) {
     const comments = arr[i].comments;
     element.lastElementChild.children[0].textContent = arr[i].comments.length;
 
-    element.addEventListener('click', (evt) => {
+    element.addEventListener('click', function (evt) {
       evt.preventDefault();
       userModal.classList.remove('hidden');
       hiddenSocialComments.classList.add('hidden');
