@@ -1,5 +1,6 @@
-import {popup, closeModalByClick, closeModalByKey} from './popup.js';
+import {popup} from './popup.js';
 import {renderedSocialComments} from './social-comments.js';
+import {closePopup} from './close-popup.js'
 
 //DOM елемент #picture
 const renderedPictures = function (arr) {
@@ -11,8 +12,18 @@ const renderedPictures = function (arr) {
   const hiddenSocialComments = document.querySelector('.social__comment-count');
   const hiddenCommentsLoader = document.querySelector('.comments-loader');
   const bodyNoScroll = document.querySelector('body');
+  const closePopupBtn = document.querySelector('#picture-cancel');
 
-  closeModalByClick(userModal, bodyNoScroll);
+  closePopupBtn.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    closePopup(userModal, bodyNoScroll, true);
+  });
+
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === ('Escape' || 'Esc')) {
+      closePopup(userModal, bodyNoScroll, true);
+    }
+  });
 
   for (let i = 0; i < arr.length; i++) {
     const element = template.cloneNode(true);
@@ -30,8 +41,6 @@ const renderedPictures = function (arr) {
       hiddenSocialComments.classList.add('hidden');
       hiddenCommentsLoader.classList.add('hidden');
       bodyNoScroll.classList.add('modal-open');
-
-      closeModalByKey(userModal, bodyNoScroll);
 
       const url = this.firstElementChild.src;
       const likes = this.lastElementChild.children[1].textContent;
