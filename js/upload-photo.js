@@ -8,6 +8,8 @@ const controlSmaller = document.querySelector('.scale__control--smaller');
 const controlBigger = document.querySelector('.scale__control--bigger');
 const controlValue = document.querySelector('.scale__control--value');
 const imgPreview = document.querySelector('.img-upload__preview');
+const descritionField = document.querySelector('.text__description');
+const hashField = document.querySelector('.text__hashtags');
 
 uploadPhoto.addEventListener('change', function (evt) {
   evt.preventDefault();
@@ -25,8 +27,13 @@ closeModal.addEventListener('click', (evt) => {
 
 document.addEventListener('keydown', (evt) => {
   if (evt.key === ('Escape' || 'Esc')) {
-    closePopup(imgUpload, bodyNoScroll, false);
-    uploadPhoto.value = '';
+
+    if ( descritionField === document.activeElement || hashField === document.activeElement) {
+      return false;
+    } else {
+      closePopup(imgUpload, bodyNoScroll, false);
+      uploadPhoto.value = '';
+    }
   }
 });
 

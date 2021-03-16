@@ -1416,3 +1416,7 @@ main {
 .hidden {
   display: none;
 }
+
+.error__input {
+  border-color: #e90000;
+}

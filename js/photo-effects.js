@@ -3,7 +3,7 @@ const photoEffect = document.querySelectorAll('.effects__radio');
 const imgPreview = document.querySelector('.img-upload__preview');
 const effectLevel = document.querySelector('.effect-level');
 const effectLevelSlider = document.querySelector('.effect-level__slider');
-const effectInput = document.querySelector('#effect');
+const effectInput = document.querySelector('#currentEffect');
 const noUiSlider = window.noUiSlider;
 
 for (let i = 0; i < photoEffect.length; i++) {
